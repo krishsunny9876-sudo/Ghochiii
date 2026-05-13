@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from './App.jsx'
 import RouterConnect from './RouterConnect.jsx';
 import Home from './Components/Home.jsx';
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
   }])
 
 createRoot(document.getElementById('root')).render(
-  <>
+  <BrowserRouter basename='/Ghochiii'>
     <RouterProvider router={router} />
-  </>,
+  </BrowserRouter>,
 )
