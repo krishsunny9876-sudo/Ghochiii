@@ -9,7 +9,7 @@ export default function About() {
       </div>
       <div className='w-[80vw] max-w-[900px] min-h-fit bg-[#000000c9] border-4 border-emerald-400 rounded-[25px] p-8 text-white shadow-[0px_0px_25px_#00ff99] flex flex-col gap-6 max-[500px]:w-[100vw] '>
         <div className='hidden max-[1170px]:block'>
-          <LocateBtn text='Back' size={30}/>
+          <LocateBtn text='Back' size={30} hover={1} />
         </div>
         <h1 className='text-[55px] font-black text-emerald-400 tracking-wide'>
           About Me
