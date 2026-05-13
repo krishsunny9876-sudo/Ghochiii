@@ -29,10 +29,12 @@ const router = createBrowserRouter([
         element: <About />
       }
     ]
-  }])
+  }],
+  {
+    basename: "/Ghochiii"
+  }
+)
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename='/Ghochiii'>
-    <RouterProvider router={router} />
-  </BrowserRouter>,
+  <RouterProvider router={router} />
 )
