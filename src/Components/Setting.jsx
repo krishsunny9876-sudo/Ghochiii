@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function Setting() {
     const navigate = useNavigate()
-    const load = () => { e.preventDefault(); navigate('/main'); }
+    const load = (e) => { e.preventDefault(); navigate('/main'); }
     const [ghochiMod, setGhochiMod] = useState(false)
     const [playersNumber, setPlayersNumber] = useState(4);
     const [playersName, setPlayersName] = useState({
