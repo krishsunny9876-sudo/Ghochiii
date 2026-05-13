@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import PlayeArea from "./Components/PlayeArea"
 import { UserContextProvider } from "./Context/UserContext"
 import Home from "./Components/Home";
@@ -13,6 +13,14 @@ function App() {
   const [gameOver, setGameOver] = useState(false);
   const [pauseGame, setPauseGame] = useState(true);
   const ghochi = localStorage.getItem('ghochiGameMod') === 'ghochi' ? true : false
+
+  useEffect(() => {
+    return (() => {
+      localStorage.removeItem('ghochiGameMod');
+      localStorage.removeItem('ghochiPlayersNumber');
+      localStorage.removeItem('ghochiPlayersName');
+    });
+  }, [])
 
   return (
     <UserContextProvider value={{
