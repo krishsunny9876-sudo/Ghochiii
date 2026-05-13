@@ -14,15 +14,15 @@ export default function PlayeArea() {
             <div className={`absolute top-0 left-0 z-20 w-[100vw] h-[100vh] transition-all duration-500 delay-2500
                  ${gameOver ? 'bg-[rgba(0,0,0,.95)] visible' : 'bg-[rgba(0,0,0,0)] invisible'}`}>
                 <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-40 z-30 text-center w-fit h-fit
-             bg-gray-600 p-5 border-5 border-black outline-3 outline-white rounded-2xl transition-all
+             bg-gray-600 p-5 max-[600px]:p-2 max-[600px]:w-[370px] text-center border-5 border-black outline-3 outline-white rounded-2xl transition-all
               duration-1000 delay-2500 ${gameOver ? 'visible scale-[1]' : 'invisible scale-0'}`}>
                     <h1 className="font-bold font-Anton text-[40px] text-[#62ffd2]">GameOver</h1>
-                    <h1 className="w-[500px] text-[25px] overflow-x-auto text-white mb-5">
+                    <h1 className="w-[370px] text-[25px] overflow-x-auto text-white mb-5">
                         {!(ghochi) ? totalPlayer !== 1 ? `${playerOver[(playerOver.length - 1)]} becomes ${playerOver[0]}'s servant` : `${playerOver[0]} Got the Value` : `${playerOver[(playerOver.length - 1)]} Got Life`}
                     </h1>
                     <div className="flex justify-around">
-                        <LocateBtn colorss="blue" text="RePlay" location="main" refresh={true}/>
-                        <LocateBtn colorss="blue" text="Menu" location="/"/>
+                        <LocateBtn colorss="blue" text="RePlay" location="main" refresh={true} />
+                        <LocateBtn colorss="blue" text="Menu" location="/" />
                     </div>
                 </div>
             </div>
