@@ -7,11 +7,11 @@ import { useEffect, useRef } from "react"
 import Loading from "./Loading"
 
 export default function PlayeArea() {
-    const { pauseGame, playerOver, gameOver, totalPlayer, ghochi } = useGlobal()
+    const { pauseGame, playerOver, gameOver, totalPlayer, ghochi, reload } = useGlobal()
 
     return (
         <>
-            <div className={`absolute top-0 left-0 z-20 w-[100vw] h-[100vh] transition-all duration-500 delay-2500
+            {!(reload) && <div className={`absolute top-0 left-0 z-20 w-[100vw] h-[100vh] transition-all duration-500 delay-2500
                  ${gameOver ? 'bg-[rgba(0,0,0,.95)] visible' : 'bg-[rgba(0,0,0,0)] invisible'}`}>
                 <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-40 z-30 text-center w-fit h-fit
              bg-gray-600 p-5 max-[600px]:p-2 max-[600px]:w-[370px] text-center border-5 border-black outline-3 outline-white rounded-2xl transition-all
@@ -25,7 +25,7 @@ export default function PlayeArea() {
                         <LocateBtn colorss="blue" text="Menu" location="/" />
                     </div>
                 </div>
-            </div>
+            </div>}
 
             <div className={`absolute top-0 left-0 w-[100vw] h-[100vh] z-10 
             ${pauseGame || gameOver ? 'visible' : 'invisible'} ${playerOver.length === 0 ? 'bg-[rgba(0,0,0,0.95)]' : 'bg-[rgba(0,0,0,0.3)]'}`}>

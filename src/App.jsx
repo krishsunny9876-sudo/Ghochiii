@@ -13,6 +13,8 @@ function App() {
   const [gameOver, setGameOver] = useState(false);
   const [pauseGame, setPauseGame] = useState(true);
   const ghochi = localStorage.getItem('ghochiGameMod') === 'ghochi' ? true : false
+  const [reload, setReload] = useState(false);
+  const [changeTarget, setChangeTarget] = useState(false);
 
   useEffect(() => {
     return (() => {
@@ -30,7 +32,8 @@ function App() {
       playerOver, setPlayerOver,
       gameOver, setGameOver,
       pauseGame, setPauseGame,
-      ghochi
+      ghochi, reload, setReload,
+      changeTarget,setChangeTarget
     }}>
       <div className={`absolute top-0 left-0 w-full h-full fixed
         z-[-5] bg-fixed ${currentPlayer === 1 ? 'bg-yellow-200' : currentPlayer === 2 ? 'bg-green-300' :

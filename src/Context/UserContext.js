@@ -8,7 +8,8 @@ const userContext = createContext({
     gameOver: false,
     pauseGame: true,
     players: ['User1', 'User2', 'User3', 'User4'],
-    ghochi: false
+    ghochi: false,
+    reload:false
 });
 
 export const UserContextProvider = userContext.Provider;

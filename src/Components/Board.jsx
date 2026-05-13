@@ -5,7 +5,6 @@ function Board() {
 
     const [clickedBox, setClickedBox] = useState([]);
     const maxBoxes = 36;
-    const [changeTarget, setChangeTarget] = useState(false);
 
     const {
         targetNum,
@@ -18,7 +17,9 @@ function Board() {
         players,
         gameOver,
         setGameOver,
-        setPauseGame
+        setPauseGame,
+        changeTarget,
+        setChangeTarget
     } = useGlobal();
 
     const targetFound = useRef();

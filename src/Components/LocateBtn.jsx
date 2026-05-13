@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useGlobal } from '../Context/UserContext'
 
 export default function LocateBtn({
   location = '/',
@@ -11,6 +12,23 @@ export default function LocateBtn({
   refresh = false,
   func = null
 }) {
+
+  const { setCurrentPlayer, setGameOver, setPlayerOver, setPauseGame, setReload, setChangeTarget } = useGlobal();
+
+  const reload = () => {
+    setCurrentPlayer(1);
+    setPlayerOver([]);
+    setGameOver(false);
+    setReload(true);
+    setChangeTarget(prev => (!(prev)));
+    setPauseGame(true);
+    setTimeout(() => {
+      setReload(false);
+    }, 100);
+    setTimeout(() => {
+      setPauseGame(false);
+    }, 3000);
+  }
 
   const navigate = useNavigate()
 
@@ -28,9 +46,10 @@ export default function LocateBtn({
       ${corner ? 'absolute top-5 left-5' : ''} border-6 rounded-[10px]
       cursor-pointer hover:outline-2 ${hover === 0 ? 'outline-black' : 'outline-white'}
       ${colors[colorss]}`}
-      onClick={() => (func ? func() : (refresh ? window.location.reload() : navigate(`/${location}`)))}
+      onClick={() => (func ? func() : (refresh ? reload() : navigate(`/${location}`)))}
     >
       {text}
     </button>
   )
 }
+//window.location.reload()
