@@ -191,7 +191,7 @@ function Board() {
                 >
 
                     <h1
-                        className='text-purple-100 text-[35px] font-bold select-none max-[600px]:text-[30px]'
+                        className='text-purple-700 text-[35px] font-bold select-none max-[600px]:text-[30px]'
                         ref={obj.number === targetNum ? targetFound : null}
                     >
                         {obj.number}
