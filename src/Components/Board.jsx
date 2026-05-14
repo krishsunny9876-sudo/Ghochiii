@@ -106,7 +106,7 @@ function Board() {
             setTargetNum('?');
             setBoxes(createBoard);
             setClickedBox([]);
-            if (playerOver.length === (totalPlayer - 1)) return;
+            if (playerOver.length === (totalPlayer - 1) && totalPlayer !== 1) return;
             setMemorize(true);
             setTimeout(() => {
                 setMemorize(false);
