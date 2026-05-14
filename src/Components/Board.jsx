@@ -19,7 +19,9 @@ function Board() {
         setGameOver,
         setPauseGame,
         changeTarget,
-        setChangeTarget
+        setChangeTarget,
+        memorize,
+        setMemorize
     } = useGlobal();
 
     const targetFound = useRef();
@@ -83,6 +85,9 @@ function Board() {
             setPlayerOver(prev => [...prev, remainingPlayer]);
 
             setGameOver(true);
+            setTimeout(() => {
+                setPauseGame(false);
+            }, 3000);
         }
 
     }, [playerOver, totalPlayer, players]);
@@ -95,19 +100,21 @@ function Board() {
 
     //PauseGame And ResetGame
     useEffect(() => {
-
-
         const setTime = setTimeout(() => {
             targetFound.current?.classList.remove('text-red-600');
             setPauseGame(false);
-
-            let random_value = (Math.floor(
-                Math.random() * maxBoxes
-            ) + 1);
-            setTargetNum(random_value);
-
+            setTargetNum('?');
             setBoxes(createBoard);
             setClickedBox([]);
+            if (playerOver.length === (totalPlayer - 1)) return;
+            setMemorize(true);
+            setTimeout(() => {
+                setMemorize(false);
+                let random_value = (Math.floor(
+                    Math.random() * maxBoxes
+                ) + 1);
+                setTargetNum(random_value);
+            }, 11000);
         }, 3000)
 
         return () => (clearTimeout(setTime))
@@ -184,7 +191,7 @@ function Board() {
                     })}
 
                     className={`flex justify-center items-center 
-                    ${!(clickedBox.includes(obj.number))
+                    ${(!(clickedBox.includes(obj.number)) && !(memorize))
                             ? 'bg-purple-700 border-3 border-purple-900 cursor-pointer hover:outline-2'
                             : ''
                         } 

@@ -5,9 +5,10 @@ import RightBoard from "./RightBoard"
 import { useGlobal } from "../Context/UserContext"
 import { useEffect, useRef } from "react"
 import Loading from "./Loading"
+import Memorize from "./Memorize"
 
 export default function PlayeArea() {
-    const { pauseGame, playerOver, gameOver, totalPlayer, ghochi, reload } = useGlobal()
+    const { pauseGame, playerOver, gameOver, totalPlayer, ghochi, reload, memorize,setChangeTarget } = useGlobal()
 
     return (
         <>
@@ -45,6 +46,7 @@ export default function PlayeArea() {
             </div>
 
             <div className="flex justify-around items-center w-[100vw] h-[100vh] max-[600px]:flex-col">
+                {memorize && <Memorize />}
                 <LocateBtn corner={true} location="/" />
                 <LeftBoard />
                 <Board />
