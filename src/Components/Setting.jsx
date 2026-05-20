@@ -7,6 +7,7 @@ export default function Setting() {
     const load = (e) => { e.preventDefault(); navigate('/main'); }
     const [ghochiMod, setGhochiMod] = useState(false)
     const [playersNumber, setPlayersNumber] = useState(4);
+    
     const [playersName, setPlayersName] = useState({
         player1: 'guest1',
         player2: 'guest2',
